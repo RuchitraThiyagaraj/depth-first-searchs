@@ -57,35 +57,35 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
 <h3>PROGRAM:</h3> 
 </HR>
 
-<hr>
-from collections import defaultdict<BR>
+```
+from collections import defaultdict
 
-def dfs(graph, start, visited, path):<BR>
-    path.append(start) <BR>
-    visited[start] = True <BR>
+def dfs(graph, start, visited, path):
+    path.append(start) 
+    visited[start] = True 
     
-    for neighbor in graph[start]:<BR>
-        if not visited[neighbor]:<BR>
-            dfs(graph, neighbor, visited, path)<BR>
+    for neighbor in graph[start]:
+        if not visited[neighbor]:
+            dfs(graph, neighbor, visited, path)
     
-    return path <BR>
+    return path 
 
-graph = defaultdict(list)<BR>
-n, e = map(int, input().split())<BR>
+graph = defaultdict(list)
+n, e = map(int, input().split())
 
-for i in range(e):<BR>
-    u, v = input().split()  <BR>
-    graph[u].append(v)<BR>
-    graph[v].append(u) <BR>
+for i in range(e):
+    u, v = input().split()  
+    graph[u].append(v)
+    graph[v].append(u) 
 
-start = 'A'<BR>
+start = 'A'
 
-visited = defaultdict(bool)<BR>
+visited = defaultdict(bool)
 
-path = []<BR>
-traversedpath = dfs(graph, start, visited, path)<BR>
-print(traversedpath)<BR>
-</hr>
+path = []
+traversedpath = dfs(graph, start, visited, path)
+print(traversedpath)
+```
 
 <hr>
 <h3>Sample Input</h3>
