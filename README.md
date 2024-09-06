@@ -53,6 +53,39 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
  <li>Find its Successors Or neighbors and Check whether the node is visited or not</li>
  <li>If Not Visited, add it to the STACK. Else Call The Function Again Until No more nodes needs to be visited.</li>
 </ol></B>
+<hr>
+<h3>PROGRAM:</h3> 
+</HR>
+
+<hr>
+from collections import defaultdict<BR>
+
+def dfs(graph, start, visited, path):<BR>
+    path.append(start) <BR>
+    visited[start] = True <BR>
+    
+    for neighbor in graph[start]:<BR>
+        if not visited[neighbor]:<BR>
+            dfs(graph, neighbor, visited, path)<BR>
+    
+    return path <BR>
+
+graph = defaultdict(list)<BR>
+n, e = map(int, input().split())<BR>
+
+for i in range(e):<BR>
+    u, v = input().split()  <BR>
+    graph[u].append(v)<BR>
+    graph[v].append(u) <BR>
+
+start = 'A'<BR>
+
+visited = defaultdict(bool)<BR>
+
+path = []<BR>
+traversedpath = dfs(graph, start, visited, path)<BR>
+print(traversedpath)<BR>
+</hr>
 
 <hr>
 <h3>Sample Input</h3>
